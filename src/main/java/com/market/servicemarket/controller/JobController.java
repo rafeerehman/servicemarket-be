@@ -43,8 +43,6 @@ public class JobController {
 
     @PostMapping("/job-type")
     public ResponseEntity<BaseResponse> jobType(@Valid @RequestBody BaseRequest request)throws Exception{
-
-
         BaseResponse responseObject = jobBusiness.getJobType(request);
         transactionLoggerService.log(request.getTransactionId(), "/portal/job/job-type",
                 request, responseObject, configurationUtil.getMessage(Constants.POST_REQUEST_RESPONSE_CODE));

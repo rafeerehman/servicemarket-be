@@ -6,6 +6,7 @@ import com.market.servicemarket.usage_analysis_repository.UsageAnalysisRepositor
 import com.market.servicemarket.util.ConfigurationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
@@ -15,6 +16,8 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.PostConstruct;
 import java.util.Collections;
 
+
+@ImportAutoConfiguration
 @SpringBootApplication
 public class ServicemarketApplication {
 
@@ -25,7 +28,6 @@ public class ServicemarketApplication {
 
     @Autowired
     ConfigurationUtil configurationUtil;
-
 
     public static void main(String[] args) {
         SpringApplication.run(ServicemarketApplication.class, args);
@@ -41,7 +43,6 @@ public class ServicemarketApplication {
 
         configurationUtil.updateConstants();
     }
-
 
     @Bean(name = "appRestClient")
     public RestTemplate getRestClient() {
